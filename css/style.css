@@ -1,3 +1,15 @@
-h2{
-    border-bottom: 1px solid #db3a1a;
+h2 {
+    background: #db3a1a;
+    color: #FFF;
+    width: 300px;
+}
+
+.line {
+    border: 0;
+    color: #db3a1a;
+    background-color: #db3a1a;
+    position: relative;
+    top: -21px;
+    height: 2px;
+
 }
