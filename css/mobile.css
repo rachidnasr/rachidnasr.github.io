@@ -1,0 +1,162 @@
+
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 14px;
+    overflow-x: hidden;
+}
+
+.ngIncludeItem {
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    animation-duration: 0.30s;
+    animation-timing-function: ease-in-out;
+    -webkit-animation-duration: 0.30s;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+
+#homepicture{
+    height: 460px;
+}
+
+.page {
+    position: inherit;
+    top: 0;
+    right: inherit;
+    bottom: inherit;
+    left: inherit;
+}
+
+.startPage {
+    background-color: #9e8465;
+	color: #e2d2c4;
+}
+
+.firstPage {
+/*    background-color: #82c0d0;*/
+    background-color: #FFF;
+	color: #000;
+}
+
+.secondPage {
+    background-color: #a1d461;
+}
+
+.thirdPage {
+    background-color: #f2693e;
+}
+
+/* When the page enters, slide it from the right */
+.ngIncludeItem.ng-enter {
+    animation-name: slideFromRight;
+    -webkit-animation-name: slideFromRight;
+}
+/* When the page enters and moveToLeft is true, slide it from the left(out of the user view) to the right (left corner) */
+.ngIncludeItem.moveToLeft.ng-enter {
+    animation-name: slideFromLeft;
+    -webkit-animation-name: slideFromLeft;
+}
+/* When the page leaves, slide it to left(out of the user view) from the left corner,
+    in other words slide it from the left(out of the view) to the left corner but in reverse order */
+.ngIncludeItem.ng-leave {
+    animation-name: slideFromLeft;
+    animation-direction: reverse;
+    -webkit-animation-name: slideFromLeft;
+    -webkit-animation-direction: reverse;
+}
+/* When the page leaves, slide it to the right(out of the user view) from the the left corner,
+    in other words, slide it from the right but in reverse order  */
+.ngIncludeItem.moveToLeft.ng-leave {
+    animation-name: slideFromRight;
+    animation-direction: reverse;
+    -webkit-animation-name: slideFromRight;
+    -webkit-animation-direction: reverse;
+}
+
+@keyframes slideFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slideFromRight {
+    0% {
+        -webkit-transform: translateX(100%);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+@-webkit-keyframes slideFromLeft {
+    0% {
+        -webkit-transform: translateX(-100%);
+    }
+
+    100% {
+        -webkit-transform: translateX(0);
+    }
+}
+
+#container > header, #main {
+    width: 80%;
+    margin: 100px auto;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(bottom, rgb(36, 36, 36) 40%, rgb(20, 20, 20) 70%);
+    background-image: -o-linear-gradient(bottom, rgb(36, 36, 36) 40%, rgb(20, 20, 20) 70%);
+    background-image: -moz-linear-gradient(bottom, rgb(36, 36, 36) 40%, rgb(20, 20, 20) 70%);
+    background-image: -webkit-linear-gradient(bottom, rgb(36, 36, 36) 40%, rgb(20, 20, 20) 70%);
+    background-image: -ms-linear-gradient(bottom, rgb(36, 36, 36) 40%, rgb(20, 20, 20) 70%);
+
+    background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.4, rgb(36, 36, 36)),
+            color-stop(0.7, rgb(20, 20, 20))
+    );
+
+    color: white;
+}
+
+.images {
+    position: relative;
+    padding: 0;
+    cursor: pointer;
+}
+
+.images li {
+    list-style: none;
+}
+
+.images li img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+	height: 520px;
+}

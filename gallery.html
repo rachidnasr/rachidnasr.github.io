@@ -1,0 +1,154 @@
+<div class="secondPage page" ng-swipe-left="responsive.selectPage(1)" ng-swipe-right="responsive.selectPage(3)">
+	<!-- Page Content -->
+	<div class="container">
+
+		<!-- Page Heading/Breadcrumbs -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Gallery
+                    <small id="count">Oops There is No Next Button :)</small>
+                </h1>
+				<ol class="breadcrumb">
+					<li><a href="index.html">Home</a>
+					</li>
+					<li class="active">Gallery</li>
+				</ol>
+			</div>
+		</div>
+		<!-- /.row -->
+
+		<!-- Image Header -->
+	<!-- Intro Content -->
+        <div class="row">
+            <div class="col-md-6">
+<!--                <img class="img-responsive" src="img/rachidAbout.jpg" alt="">-->
+            <ul class="images">
+        <li><img class="img-responsive" src="img/1.jpg" width="500" height="700" title="Nature Morte" alt="This is one of my first oil painting."></li>
+        <li><img class="img-responsive" src="img/2.jpg" width="500" height="700" title="Green Apple Etude" alt="Exploring different aspects of colors transitions"></li>
+        <li><img class="img-responsive" src="img/3.jpg" width="500" height="700" title="Sketch Of My Father" alt="An attempt to use ink to portray my father."></li>
+        <li><img class="img-responsive" src="img/4.jpg" width="500" height="700" title="The Blue Vase" alt="Rather than representing flowers in bloom, I was more interested here in the modulation in colour. Once again, the subject is used to further one of my major preoccupations as an artist: the study of the effect of light on objects, and the resulting variations in colour. "></li>
+        <li><img class="img-responsive" src="img/5.jpg" width="500" height="700" title="The Blue Vase" alt="Inspired by Paul Cezanne, I painted my own blue vase "></li>
+        <li><img class="img-responsive" src="img/6.jpg" width="500" height="700" title="Motherhood" alt="Inspired by Paul Cezanne, I painted my own blue vase "></li>
+    </ul>
+            </div>
+            <div class="col-md-6">
+                <h2 id="imgTitle">Welcome to My Gallery</h2>
+                <p id="imgAlt">This is a collection of work that I did through the years it  contains different genres of art :paintings, sketches and concept art.
+                I 've always loved drawing and painting since I was a child,But I really loved more when I went to study Mechanical Engineering in the Lycee of Ibn Al Mouakkit in Casablanca .I loved drawing perspectives of different mechanical systems.
+                </p>
+               
+            </div>
+        </div>
+        <!-- /.row -->
+		<script>
+			$(document).ready(function () {
+				//alert("hello");
+				CSSPlugin.defaultTransformPerspective = 500;
+
+				var $imgWrap = $('.images'),
+					$images = $imgWrap.find('img'),
+					$currImg = $images.eq(0),
+					index = 0,
+					numImgs = $images.length,
+					isAnimating = false;
+
+				// Animation properties
+				var flipDepth = -500,
+					flipDur = 2;
+
+				var flip = function (e) {
+					
+					//get image title
+				 	//var img_title = $(this).find('img').attr('title');
+//					var img_href = $(this).attr('href');
+					
+					// Ignore click until any current animations have completed.
+					if (isAnimating) return;
+
+					isAnimating = true;
+
+					// Add +1 to index or loop back to 0 if we've reached the end
+					index = (index++ >= numImgs - 1) ? 0 : index;
+					//alert(index);
+					$("#count").html(index+"/"+numImgs);
+					$("#imgTitle").html($images[index]["title"]);
+					$("#imgAlt").html($images[index]["alt"]);
+
+					// Get a random value between -25 and 25
+					var randomVal = Math.random() * 50 - 25;
+
+					var tl = new TimelineLite({
+						onComplete: function () {
+							$currImg = $images.eq(index);
+							isAnimating = false;
+						}
+					});
+
+					tl.to($currImg, flipDur / 2, {
+						css: {
+							rotationY: 90,
+							z: flipDepth,
+							rotationX: randomVal,
+							alpha: 0.3
+						},
+						ease: Expo.easeIn
+					});
+
+					tl.append(function () {
+						$currImg.hide();
+						$images.eq(index).show();
+					})
+
+					tl.fromTo($images.eq(index), flipDur / 2,
+						// We need to flip the number sign fo rotationX, so we do -randomVal instead of randomVal
+						{
+							css: {
+								rotationY: -90,
+								z: flipDepth,
+								rotationX: -randomVal,
+								alpha: 0.3
+							}
+						}, {
+							css: {
+								rotationY: 0,
+								z: 0,
+								rotationX: 0,
+								alpha: 1
+							},
+							ease: Expo.easeOut
+						}
+					);
+				};
+
+				// Animate first image in
+				TweenMax.fromTo($currImg, 1.8, {
+					css: {
+						rotationY: -110,
+						rotationX: Math.random() * 35,
+						z: -1000,
+						alpha: 0
+					}
+				}, {
+					css: {
+						rotationY: 0,
+						rotationX: 0,
+						z: 0,
+						alpha: 1
+					},
+					ease: Power3.easeInOut,
+					onComplete: function () {
+						$imgWrap.on('click', flip);
+					}
+				});
+
+				$currImg.show();
+				
+				
+			});
+		</script>
+	</div>
+	<!-- /.row -->
+
+
+
+</div>
