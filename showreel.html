@@ -1,12 +1,21 @@
-<div class="page" ng-swipe-right="responsive.selectPage(4)" ng-swipe-left="responsive.selectPage(2)">
+<div class="showreelPage" ng-swipe-right="responsive.selectPage(4)" ng-swipe-left="responsive.selectPage(2)">
 	<!-- Page Content -->
+	<style>
+		.carousel .carousel-control,.carousel .carousel-indicators li {
+			visibility: hidden;
+		}
+		
+		.carousel:hover .carousel-control,.carousel:hover .carousel-indicators li {
+			visibility: visible;
+		}
+	</style>
 	<div class="container">
 
 		<!-- Page Heading/Breadcrumbs -->
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Showreel
-                    <small>Subheading</small>
+                    <small>The Last Two Video's are mine</small>
                 </h1>
 				<ol class="breadcrumb">
 					<li><a href="index.html">Home</a>
@@ -31,6 +40,7 @@
 						<li data-target="#carousel-example-generic" data-slide-to="4"></li>
 						<li data-target="#carousel-example-generic" data-slide-to="5"></li>
 						<li data-target="#carousel-example-generic" data-slide-to="6"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="7"></li>
 					</ol>
 
 					<!-- Wrapper for slides -->
@@ -49,6 +59,9 @@
 						</div>
 						<div class="item">
 							<iframe src="//www.youtube.com/embed/v8-dPr_CzlQ?hd=1&iv_load_policy=3&controls=0" allowfullscreen="" width="750" height="500" frameborder="0"></iframe>
+						</div>
+						<div class="item">
+							<iframe src="//www.youtube.com/embed/AaykjDsx3_g?hd=1&iv_load_policy=3&controls=0" allowfullscreen="" width="750" height="500" frameborder="0"></iframe>
 						</div>
 						<div class="item">
 							<iframe src="//www.youtube.com/embed/w5sCgbgukjo?hd=1&iv_load_policy=3&controls=0" allowfullscreen="" width="750" height="500" frameborder="0"></iframe>
@@ -88,7 +101,7 @@
 		<footer>
 			<div class="row">
 				<div class="col-lg-12">
-					<p>Copyright &copy; Your Website 2014</p>
+					<p>Copyright &copy; Rachid 2016</p>
 				</div>
 			</div>
 		</footer>
@@ -97,11 +110,11 @@
 	<!-- /.container -->
 	<script>
 		$(document).ready(function () {
-		$('.carousel').each(function(){
-        $(this).carousel({
-            interval: false
-        });
-    });
+			$('.carousel').each(function () {
+				$(this).carousel({
+					interval: false
+				});
+			});
 		});
 	</script>
 

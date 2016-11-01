@@ -19,15 +19,15 @@ function tabsSwipeCtrlFn() {
 	}, {
 		index: 4,
 		name: 'pictures',
-		url: 'showreel.html'
+		url: 'pictures.html'
 	}, {
 		index: 5,
 		name: 'generative art',
 		url: 'genart.html'
 	}, {
 		index: 6,
-		name: 'blog',
-		url: 'showreel.html'
+		name: 'resume',
+		url: 'resume.html'
 	}, {
 		index: 7,
 		name: 'contact',

@@ -41,6 +41,24 @@ body {
 	color: #000;
 }
 
+.picturesPage{
+	background-color: #FFF;
+	color: #27282E;
+}
+
+.showreelPage{
+	background-color: #080808;
+	color: #FFF;
+}
+.genartPage{
+	background-color: #ccc;
+	color: #27282E;
+}
+.resumePage{
+	background-color: #82c0d0;
+	color: #FFF;
+}
+
 .secondPage {
     background-color: #a1d461;
 }
