@@ -170,7 +170,7 @@
 					// Add +1 to index or loop back to 0 if we've reached the end
 					index = (index++ >= numImgs - 1) ? 0 : index;
 					//alert(index);
-					$("#count").html((index+1)+"/"+numImgs);
+					$("#count").html((index)+"/"+numImgs);
 					$("#imgTitle").html($images[index]["title"]);
 					$("#imgAlt").html($images[index]["alt"]);
 
