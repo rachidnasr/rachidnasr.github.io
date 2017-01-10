@@ -60,20 +60,26 @@ $(document).ready(function () {
         var col = 0;
         var row = 0;
         for (i = 0; i < l; i++) {
-            piece = new createjs.Bitmap('img/nycda.jpg');
+            piece = new createjs.Bitmap('img/nycda.jpg');// A Bitmap can be instantiated using an existing HTML element.
              //console.log(piece);
+            //a rectangle as defined by the points Rectangle(x, y, x+width, y+height).
             piece.sourceRect = new createjs.Rectangle(col * PUZZLE_SIZE, row * PUZZLE_SIZE, PUZZLE_SIZE, PUZZLE_SIZE);
             piece.homePoint = {x: col * PUZZLE_SIZE, y: row * PUZZLE_SIZE};
             // console.log(piece.sourceRect);
             // console.log(piece.homePoint);
             piece.x = piece.homePoint.x;
+            // console.log("i="+i+" => piece.x = "+piece.x);
             piece.y = piece.homePoint.y;
+            // console.log("i="+i+" => piece.y = "+piece.y);
+            // console.log("******************************");
             stage.addChild(piece);
             pieces[i] = piece;
             col++;
             if (col === PUZZLE_COLUMNS) {
                 col = 0;
                 row++;
+                // console.log("row "+row+" -----------------");
+
             }
         }
     }
@@ -88,6 +94,8 @@ $(document).ready(function () {
         for (i = 0; i < l; i++) {
             randomIndex = Math.floor(Math.random() * p.length);
             piece = p[randomIndex];
+            // console.log(piece);
+            // console.log(randomIndex);
             p.splice(randomIndex, 1);
             createjs.Tween.get(piece).to({x: col * PUZZLE_SIZE, y: row * PUZZLE_SIZE}, 200);
             piece.addEventListener('click', onPieceClick);
@@ -104,7 +112,7 @@ $(document).ready(function () {
             return;
         }
         var piece = e.target;
-        var matrix = new createjs.ColorMatrix().adjustColor(15, 10, 100, 180);
+        var matrix = new createjs.ColorMatrix().adjustColor(15, 10, 100, 180);//adjustColor(brightness, contrast, saturation, hue)
         piece.filters = [
             new createjs.ColorMatrixFilter(matrix)
         ];
@@ -150,7 +158,7 @@ $(document).ready(function () {
         createjs.Ticker.addEventListener("tick", function () {
             stage.update();
         });
-        createjs.Ticker.setFPS(60);
+        createjs.Ticker.setFPS(60); //setInterval()
     }
 
     //Shuffle the puzzle
