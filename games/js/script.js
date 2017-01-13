@@ -65,12 +65,12 @@ $(document).ready(function () {
             //a rectangle as defined by the points Rectangle(x, y, x+width, y+height).
             piece.sourceRect = new createjs.Rectangle(col * PUZZLE_SIZE, row * PUZZLE_SIZE, PUZZLE_SIZE, PUZZLE_SIZE);
             piece.homePoint = {x: col * PUZZLE_SIZE, y: row * PUZZLE_SIZE};
-            // console.log(piece.sourceRect);
-            // console.log(piece.homePoint);
+            console.log(piece.sourceRect);
+            console.log(piece.homePoint);
             piece.x = piece.homePoint.x;
-            // console.log("i="+i+" => piece.x = "+piece.x);
+            console.log("i="+i+" => piece.x = "+piece.x);
             piece.y = piece.homePoint.y;
-            // console.log("i="+i+" => piece.y = "+piece.y);
+            console.log("i="+i+" => piece.y = "+piece.y);
             // console.log("******************************");
             stage.addChild(piece);
             pieces[i] = piece;
